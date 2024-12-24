@@ -1,0 +1,42 @@
+<p>login-page</p>
+
+<form [formGroup]="loginform">
+  <div>
+    <label for="username">User_Name : </label>
+    <input
+      type="text"
+      id="username"
+      placeholder="enter your username"
+      formControlName="userName"
+    />
+    <div
+      class="error-message"
+      *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+    >
+      <small *ngIf="userName.errors && userName.errors['required']">
+        username is required
+      </small>
+    </div>
+  </div>
+  <div>
+    <label for="password">Password : </label>
+    <input
+      type="password"
+      id="password"
+      placeholder="enter your password"
+      formControlName="password"
+    />
+    <div
+      class="error-message"
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+    >
+      <small *ngIf="password.errors && password.errors['required']"
+        >password is required</small
+      >
+      <small *ngIf="password.errors && password.errors['minlength']"
+        >password must be atlist 6 characters</small
+      >
+    </div>
+  </div>
+  <button (click)="onSubmit()">Login</button>
+</form>
