@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/School_Management/',
+  basePath: '/',
   entryPoints: {
     '': () => import('./main.server.mjs')
   },
